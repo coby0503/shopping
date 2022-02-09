@@ -10,9 +10,14 @@ interface Props {
   item: ItemInfo;
 }
 
+const check = (e: React.MouseEvent<HTMLElement>) => {
+  const boxList = document.querySelectorAll(".item-box");
+  console.log(boxList.length);
+};
+
 const Item: NextPage<Props> = ({ item }) => {
   return (
-    <ItemContainer>
+    <ItemContainer className="item-box" onClick={(e) => check(e)}>
       <div>{item.name}</div>
       <div>{item.description}</div>
     </ItemContainer>
@@ -21,10 +26,9 @@ const Item: NextPage<Props> = ({ item }) => {
 export default Item;
 
 const ItemContainer = styled.div`
+  flex: none;
   height: 100%;
   width: 300px;
-  float: left;
-  transition: 0.8s linear;
   border: 2px solid black;
   box-sizing: border-box;
 `;

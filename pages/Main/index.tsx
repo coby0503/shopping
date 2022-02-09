@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import MainHeader from "../../components/MainHeader";
 import MainFooter from "../../components/MainFooter";
-import ItemList from "../../components/Carousel";
+import Carousel from "../../components/Carousel";
 
 const Main = () => {
   return (
     <MainWrap>
       <MainArea>
         <MainHeader />
-        <ItemList />
-        <ItemList />
-        <ItemList />
+        <Carousel />
+        <Carousel />
+        <Carousel />
         <MainFooter />
       </MainArea>
     </MainWrap>
