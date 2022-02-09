@@ -96,7 +96,6 @@ const Carousel: NextPage = () => {
   const [cool, setCool] = useState<boolean>(true);
 
   const check = () => {
-    console.log(test);
     if (test === -(items.length / 3 - 2)) {
       setTimeout(() => {
         setToggle(false);
