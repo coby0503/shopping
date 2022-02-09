@@ -28,7 +28,10 @@ export default Item;
 const ItemContainer = styled.div`
   flex: none;
   height: 100%;
-  width: 300px;
+  width: 400px;
   border: 2px solid black;
+  margin-right: 20px;
+  padding: 15px;
+  border-radius: 10px;
   box-sizing: border-box;
 `;
