@@ -9,15 +9,15 @@ interface ItemInfo {
 interface Props {
   item: ItemInfo;
   checkItem: number;
-  setCheckItem: React.Dispatch<React.SetStateAction<number>>;
   boxIndex: number;
   change: boolean;
+  test: (boxIndex: number) => void;
 }
 
 const ItemContainer = styled.div<{ change: boolean }>`
   flex: none;
-  height: 60px;
-  width: 100px;
+  height: 100px;
+  width: 120px;
   border: 2px solid black;
   margin-right: 20px;
   padding: 15px;
@@ -26,24 +26,18 @@ const ItemContainer = styled.div<{ change: boolean }>`
   transition: ${(props) => (props.change ? "0.2s linear" : "none")};
   &.checkItem {
     background-color: lightblue;
-    height: 100%;
-    width: 200px;
+    height: 200px;
+    width: 180px;
   }
 `;
-const Item: NextPage<Props> = ({
-  item,
-  checkItem,
-  setCheckItem,
-  boxIndex,
-  change,
-}) => {
-  if (checkItem === boxIndex) {
-    console.log("hello");
-  }
+//배율과 작은 박스의 크기를 입력받아서 props로 처리하장.
+const Item: NextPage<Props> = ({ item, checkItem, boxIndex, change, test }) => {
   return (
     <ItemContainer
       className={boxIndex === checkItem ? " checkItem" : ""}
-      onClick={() => setCheckItem(boxIndex)}
+      onClick={() => {
+        test(-boxIndex);
+      }}
       change={change}
     >
       <div>{item.name}</div>
